@@ -31,7 +31,7 @@ describe('Query Builder - output format', function () {
 
   it('should be able to select 1 field at a time', function () {
     cy.get('.fieldsSelect').click();
-    cy.get('#react-select-12-option-0-0').click();
+    cy.get('#react-select-10-option-0-4').click();
   });
 
   it('should be able to navigate to the next page', function () {
