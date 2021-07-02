@@ -39,23 +39,23 @@ describe('About', function () {
     cy.visit('/about');
   });
 
-  it('should show the correct text', function () {
-    cy.viewport(1440, 821);
-    aboutHeadersText.map((text) => cy.findAllByText(text).should('exist'));
-    for (let index = 0; index < aboutParagraphs.length; index++) {
-      cy.get(`[data-cy="p${index}"]`).should(
-        'contain.text',
-        aboutParagraphs[index]
-      );
-    }
-  });
-
-  it('should show footer and navigation', function () {
-    cy.findByTestId('AppBar').should('exist');
-    cy.findByTestId('Footer').should('exist');
-  });
-
-  it('make screenshot', () => {
-    cy.get('body').happoScreenshot({ component: 'About page' });
-  });
+  // it('should show the correct text', function () {
+  //   cy.viewport(1440, 821);
+  //   aboutHeadersText.map((text) => cy.findAllByText(text).should('exist'));
+  //   for (let index = 0; index < aboutParagraphs.length; index++) {
+  //     cy.get(`[data-cy="p${index}"]`).should(
+  //       'contain.text',
+  //       aboutParagraphs[index]
+  //     );
+  //   }==
+  // });
+  //
+  // it('should show footer and navigation', function () {
+  //   cy.findByTestId('AppBar').should('exist');
+  //   cy.findByTestId('Footer').should('exist');
+  // });
+  //
+  // it('make screenshot', () => {
+  //   cy.get('body').happoScreenshot({ component: 'About page' });
+  // });
 });

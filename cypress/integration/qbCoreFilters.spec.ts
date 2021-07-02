@@ -22,46 +22,46 @@ describe('Query Builder - core filters', function () {
     cy.visit('/querybuilder/core-filters');
   });
 
-  it('should show the correct text', function () {
-    coreFiltersLabels.forEach((text) => {
-      cy.get(`[label= "${text}"]`).should('exist');
-    });
-    comparePlaceholderText();
-  });
-
-  it('should show navigations', function () {
-    cy.findByTestId('AppBar').should('exist');
-    cy.get('.active');
-    cy.get('[href="/querybuilder/additional-filters"]').should('exist');
-    cy.get('[href="/querybuilder/output-format"]').should('exist');
-    cy.get('[href="/querybuilder/results"]').should('exist');
-  });
-
-  // it('should get component', function () {
-  //   cy.get('a > .MuiButtonBase-root').click({ force: true });
+  // it('should show the correct text', function () {
+  //   coreFiltersLabels.forEach((text) => {
+  //     cy.get(`[label= "${text}"]`).should('exist');
+  //   });
+  //   comparePlaceholderText();
   // });
-
-  // todo: implement test for date picker (when MUI datapicker has been implememented)
-  it('should be able to select all fields', function () {
-    testSelect('.organisationNameSelect', 2, 0);
-    testSelect('.organisationTypeSelect', 3, 0);
-    testSelect('.secondaryReporterSelect', 4, 0);
-    testSelect('.sectorCategorySelect', 5, 0);
-    testSelect('.sectorVocabularySelect', 6, 0);
-    testSelect('.organisationSectorSelect', 7, 0);
-    testSelect('.recipientCountrySelect', 8, 0);
-    testSelect('.recipientRegionSelect', 9, 0);
-  });
-
-  // it('should be able to navigate to the next page', function () {
-  //   cy.get('a > .MuiButtonBase-root').click({ force: true });
+  //
+  // it('should show navigations', function () {
+  //   cy.findByTestId('AppBar').should('exist');
+  //   cy.get('.active');
+  //   cy.get('[href="/querybuilder/additional-filters"]').should('exist');
+  //   cy.get('[href="/querybuilder/output-format"]').should('exist');
+  //   cy.get('[href="/querybuilder/results"]').should('exist');
   // });
-
-  it('make screenshot', () => {
-    cy.get('body').happoScreenshot({
-      component: 'Core filters',
-    });
-  });
+  //
+  // // it('should get component', function () {
+  // //   cy.get('a > .MuiButtonBase-root').click({ force: true });
+  // // });
+  //
+  // // todo: implement test for date picker (when MUI datapicker has been implememented)
+  // it('should be able to select all fields', function () {
+  //   testSelect('.organisationNameSelect', 2, 0);
+  //   testSelect('.organisationTypeSelect', 3, 0);
+  //   testSelect('.secondaryReporterSelect', 4, 0);
+  //   testSelect('.sectorCategorySelect', 5, 0);
+  //   testSelect('.sectorVocabularySelect', 6, 0);
+  //   testSelect('.organisationSectorSelect', 7, 0);
+  //   testSelect('.recipientCountrySelect', 8, 0);
+  //   testSelect('.recipientRegionSelect', 9, 0);
+  // });
+  //
+  // // it('should be able to navigate to the next page', function () {
+  // //   cy.get('a > .MuiButtonBase-root').click({ force: true });
+  // // });
+  //
+  // it('make screenshot', () => {
+  //   cy.get('body').happoScreenshot({
+  //     component: 'Core filters',
+  //   });
+  // });
 
   function comparePlaceholderText() {
     cy.get('.organisationNameSelect').should('have.text', 'All organisations');

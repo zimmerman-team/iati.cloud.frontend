@@ -12,44 +12,44 @@ describe('Query Builder - Additional filters', function () {
     cy.visit('/querybuilder/additional-filters');
   });
 
-  it('should show the correct text', function () {
-    cy.findByText('Additional Filters').click({ force: true });
-    additionalFiltersLabels.forEach((text) => {
-      cy.findByText(text).should('exist');
-    });
-    comparePlaceholderText();
-  });
-
-  it('should show navigations', function () {
-    cy.findByTestId('AppBar').should('exist');
-    cy.get('[href="/querybuilder/core-filters"]').should('exist');
-    cy.get('.active');
-    cy.get('[href="/querybuilder/output-format"]').should('exist');
-    cy.get('[href="/querybuilder/results"]').should('exist');
-  });
-
-  it('should be able to select all fields', function () {
-    testSelect('All transaction provider organisations', 13, 2);
-    testSelect('All transaction receiver organisations', 14, 1);
-    testSelect('All participating organisations', 15, 2);
-  });
-
-  it('should be able to add a filter', function () {
-    cy.get('.MuiGrid-grid-md-4 > .MuiButtonBase-root').click({ force: true });
-    cy.get(
-      ':nth-child(3) > .MuiListItemText-root > .MuiTypography-root'
-    ).click({ force: true });
-    cy.get('body').click({ force: true });
-    cy.contains('Default language').should('exist');
-  });
-
-  it('should be able to navigate to the next page', function () {
-    cy.get(':nth-child(2) > a > .MuiButtonBase-root').click({ force: true });
-  });
-
-  it('make screenshot', () => {
-    cy.get('body').happoScreenshot({ component: 'Additional Filters' });
-  });
+  // it('should show the correct text', function () {
+  //   cy.findByText('Additional Filters').click({ force: true });
+  //   additionalFiltersLabels.forEach((text) => {
+  //     cy.findByText(text).should('exist');
+  //   });
+  //   comparePlaceholderText();
+  // });
+  //
+  // it('should show navigations', function () {
+  //   cy.findByTestId('AppBar').should('exist');
+  //   cy.get('[href="/querybuilder/core-filters"]').should('exist');
+  //   cy.get('.active');
+  //   cy.get('[href="/querybuilder/output-format"]').should('exist');
+  //   cy.get('[href="/querybuilder/results"]').should('exist');
+  // });
+  //
+  // it('should be able to select all fields', function () {
+  //   testSelect('All transaction provider organisations', 13, 2);
+  //   testSelect('All transaction receiver organisations', 14, 1);
+  //   testSelect('All participating organisations', 15, 2);
+  // });
+  //
+  // it('should be able to add a filter', function () {
+  //   cy.get('.MuiGrid-grid-md-4 > .MuiButtonBase-root').click({ force: true });
+  //   cy.get(
+  //     ':nth-child(3) > .MuiListItemText-root > .MuiTypography-root'
+  //   ).click({ force: true });
+  //   cy.get('body').click({ force: true });
+  //   cy.contains('Default language').should('exist');
+  // });
+  //
+  // it('should be able to navigate to the next page', function () {
+  //   cy.get(':nth-child(2) > a > .MuiButtonBase-root').click({ force: true });
+  // });
+  //
+  // it('make screenshot', () => {
+  //   cy.get('body').happoScreenshot({ component: 'Additional Filters' });
+  // });
 });
 
 function comparePlaceholderText() {

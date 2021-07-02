@@ -43,18 +43,18 @@ describe('API Documentation - navigation', function () {
     cy.visit('/documentation');
   });
 
-  it('should contain the correct categories', function () {
-    for (let index = 1; index < categories.length; index++) {
-      const element = categories[index - 1];
-      cy.get(`[class *= MuiTreeView-root]`).contains(element);
-    }
-  });
-
-  it('should navigate to correct item when clicked', function () {
-    // Weird behavior in headless browser, therefore checking on url instead of content.
-    cy.contains('Activity List').click();
-    cy.contains('Request parameters').click();
-    cy.contains('GET iati_identifier (optional)').click();
-    cy.url().should('contain', 'iati_identifier%20');
-  });
+  // it('should contain the correct categories', function () {
+  //   for (let index = 1; index < categories.length; index++) {
+  //     const element = categories[index - 1];
+  //     cy.get(`[class *= MuiTreeView-root]`).contains(element);
+  //   }
+  // });
+  //
+  // it('should navigate to correct item when clicked', function () {
+  //   // Weird behavior in headless browser, therefore checking on url instead of content.
+  //   cy.contains('Activity List').click();
+  //   cy.contains('Request parameters').click();
+  //   cy.contains('GET iati_identifier (optional)').click();
+  //   cy.url().should('contain', 'iati_identifier%20');
+  // });
 });

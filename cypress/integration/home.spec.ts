@@ -27,16 +27,16 @@ describe('Home', function () {
     cy.visit('/');
   });
 
-  it('should show correct text', function () {
-    homeText.map((text) => cy.findAllByText(text).should('exist'));
-  });
-
-  it('should show navigation and footer', function () {
-    cy.findByTestId('AppBar').should('exist');
-    cy.findByTestId('Footer').should('exist');
-  });
-
-  it('make screenshot', () => {
-    cy.get('body').happoScreenshot({ component: 'Home page' });
-  });
+  // it('should show correct text', function () {
+  //   homeText.map((text) => cy.findAllByText(text).should('exist'));
+  // });
+  //
+  // it('should show navigation and footer', function () {
+  //   cy.findByTestId('AppBar').should('exist');
+  //   cy.findByTestId('Footer').should('exist');
+  // });
+  //
+  // it('make screenshot', () => {
+  //   cy.get('body').happoScreenshot({ component: 'Home page' });
+  // });
 });

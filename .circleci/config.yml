@@ -1,5 +1,5 @@
 orbs:
-  cypress: cypress-io/cypress@1
+  cypress: cypress-io/cypress@1.28.0
 version: 2.1
 
 # have a look at https://circleci.com/orbs/registry/orb/germade/rsync
@@ -77,9 +77,9 @@ workflows:
                 command: |
                   echo 'export CYPRESS_BASE_URL="http://localhost:3000"' >> $BASH_ENV
                   source $BASH_ENV
-          wait-on: "http://localhost:3000"
+          start: yarn start
+          wait-on: 'http-get://localhost:3000'
           yarn: true
-          start: npm start
           browser: chrome
           requires:
             - "checkout"
